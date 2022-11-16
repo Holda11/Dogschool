@@ -3,8 +3,10 @@ const asyncHandler = require('express-async-handler')
 const User = require('../Models/UserModel')
 
 const protect = asyncHandler(async(req, res, next)=>{
-let token
+//Vytvoříme variable token, je LET neboť se hodnota bude měnit
+    let token
 
+// Pokud header a header začinající s header je pravda    
 if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
     try{
         token = req.headers.authorization.split(' ')[1]
@@ -16,7 +18,7 @@ if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
         next()
     }catch(error){
         console.log(error)
-        res.status(401)
+        res.status(400)
         throw new Error('Nepřihlášen')
     }
 }
