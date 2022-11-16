@@ -18,7 +18,7 @@ if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
         next()
     }catch(error){
         console.log(error)
-        res.status(400)
+        res.status(401)
         throw new Error('Nepřihlášen')
     }
 }
