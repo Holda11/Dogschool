@@ -1,5 +1,19 @@
 import styled from "styled-components";
 
+export const Navbar = styled.nav`
+border-bottom: 1px solid grey;
+color: white;
+background-color: black;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+width: 100%;
+font-size: 24px;
+font-weight: bold;
+padding: 10px 0;
+`
+
 export const Container = styled.div`
 width: 100%;
 height: 100vh;
@@ -61,4 +75,20 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+`
+export const Title = styled.h4`
+font-size: 36px;
+font-weight: 700;
+`
+export const Button = styled.button`
+color: white;
+padding: 5px 10px;
+background-color: black;
+border-radius: 5px;
+font-size: 16px;
+transition: 1s ease;
+
+&:hover{
+    transform: scale(1.1);
+}
 `
