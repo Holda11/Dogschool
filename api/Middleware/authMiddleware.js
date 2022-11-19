@@ -6,7 +6,7 @@ const protect = asyncHandler(async(req, res, next)=>{
 //Vytvoříme variable token, je LET neboť se hodnota bude měnit
     let token
 
-// Pokud header a header začinající s header je pravda    
+// Pokud header a header začinající s bearer je pravda    
 if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
     try{
         token = req.headers.authorization.split(' ')[1]
