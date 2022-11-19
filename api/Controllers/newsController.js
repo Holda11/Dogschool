@@ -9,6 +9,7 @@ const getNews = asyncHandler( async (req, res)=>{
 })
 
 // Post = vloží data do databáze pro nás
+//! Přidat podmínku na uživatele
 const postNews = asyncHandler( async (req, res)=>{
     if(!req.body){
         res.status(400)
@@ -22,6 +23,7 @@ const postNews = asyncHandler( async (req, res)=>{
 })
 
 //Put = upravý data pro nás
+//! Přidat podmínku na uživatele
 const putNews = asyncHandler( async (req, res)=>{
     const news = await News.findById(req.params.id)
 
@@ -33,6 +35,7 @@ const putNews = asyncHandler( async (req, res)=>{
 })
 
 //Delete = odstaní data pro nás
+//! Přidat podmínku na uživatele
 const deleteNews = asyncHandler( async (req, res)=>{
     const news = await News.findById(req.params.id)
 

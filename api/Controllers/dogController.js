@@ -9,6 +9,7 @@ const getDog = asyncHandler( async (req, res)=>{
 })
 
 // Post = vloží data do databáze pro nás
+//! Přidat podmínku na uživatele
 const postDog = asyncHandler( async (req, res)=>{
     if(!req.body){
         res.status(400)
@@ -22,6 +23,7 @@ const postDog = asyncHandler( async (req, res)=>{
 })
 
 //Put = upravý data pro nás
+//! Přidat podmínku na uživatele
 const putDog = asyncHandler( async (req, res)=>{
     const dog = await Dog.findById(req.params.id)
 
@@ -33,6 +35,7 @@ const putDog = asyncHandler( async (req, res)=>{
 })
 
 //Delete = odstaní data pro nás
+//! Přidat podmínku na uživatele
 const deleteDog = asyncHandler( async (req, res)=>{
     const dog = await Dog.findById(req.params.id)
 
