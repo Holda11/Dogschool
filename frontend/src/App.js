@@ -1,13 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NewNews from "./admin/pages/newNews";
 import './App.css';
+import Home from './pages';
+import Novinky from "./pages/Novinky";
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" exact element={<Home />}/>
+        <Route path="/Novinky" exact element={<Novinky />}/>
+        <Route path="/NewNews" exact element={<NewNews />}/>
+      </Routes>
+      </BrowserRouter>
   );
 }
 
