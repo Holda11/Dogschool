@@ -8,7 +8,7 @@ const StandartNews = () => {
   const [listofNews, setListofNews] = useState([])
 
   useEffect(()=>{
-    Axios.get("http://localhost:3001/api/News").then((response)=>{
+    Axios.get("/api/News").then((response)=>{
       setListofNews(response.data);
     })
   },[])

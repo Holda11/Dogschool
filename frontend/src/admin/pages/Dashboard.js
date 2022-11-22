@@ -1,13 +1,26 @@
-import React from 'react'
-import { Container, Wrapper, CenterDiv, Psy, Novinky, Info, Title, Navbar, Button } from '../styles/dashboardStyled'
+import React, {useEffect} from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { Container, Wrapper, CenterDiv, Psy, Novinky, Info, Title,  Button } from '../styles/dashboardStyled'
+import Header from '../components/Header'
 import {  FaPaw, FaReadme, FaInfo } from 'react-icons/fa'
 import { IconContext } from "react-icons";
 
 
 const Dashboard = () => {
+  const navigate = useNavigate()
+
+  const {user} = useSelector((state) => state.auth)
+  
+  useEffect(()=>{
+    if(!user){
+      navigate('/login')
+    }
+  }, [user, navigate])
+
   return (
     <IconContext.Provider value={{size: "50px"}}>
-    <Navbar>DogSchool - Admin Panel</Navbar>
+    <Header/>
     <Container>
         <Wrapper>
             <CenterDiv>
