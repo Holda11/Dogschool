@@ -1,16 +1,18 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import { ParagraphData } from '../../../data/ParaghData'
 import {Container,  Wrapper, Row, Left, LeftContainer, Title, ArticleContainer, ArticleTitle, ArticleDate, ArticleDesc, ArticleButton, ArticleRight, ArticleImg, Right, InfoContainer, InfoTitle, InfoTime, InfoDesc, Paragraph, ArticleLeft,} from './StandartNewsStyled'
-import Axios from 'axios'
+import { useSelector, useDispatch } from 'react-redux'
+import { getNews } from '../../../features/news/newsSlice'
+
 
 const StandartNews = () => {
-  const [listofNews, setListofNews] = useState([])
+ 
+  
+  const dispatch = useDispatch()
 
-  useEffect(()=>{
-    Axios.get("/api/News").then((response)=>{
-      setListofNews(response.data);
-    })
-  },[])
+  useEffect(()=>{ dispatch(getNews()) },[dispatch])
+
+  const {news} = useSelector((state) => state.news)
 
   return (
     <Container>
@@ -19,12 +21,12 @@ const StandartNews = () => {
           <Left>
             <LeftContainer>
               <Title>Novinky</Title>
-              {listofNews.map((item)=>(
-               <ArticleContainer >
+              {news.map((news)=>(
+               <ArticleContainer>
                 <ArticleLeft>
-                <ArticleTitle>{item.title}</ArticleTitle>
-                <ArticleDate>{item.date}</ArticleDate>
-                <ArticleDesc>{item.description}</ArticleDesc>
+                <ArticleTitle>{news.title}</ArticleTitle>
+                <ArticleDate>{news.date}</ArticleDate>
+                <ArticleDesc>{news.description}</ArticleDesc>
                 <ArticleButton>Více</ArticleButton>
                 </ArticleLeft>
                 <ArticleRight>

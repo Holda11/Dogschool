@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Hr, Wrapper, Row, Left, LeftContainer, Title, ArticleContainer, ArticleTitle, ArticleDate, ArticleDesc, ArticleButton, ArticleRight, ArticleImg, Right, InfoContainer, InfoTitle, InfoTime, InfoDesc, Paragraph, ArticleLeft,  } from './BasicStyled'
 import { NewsData } from '../../../data/NewsData'
 import { ParagraphData } from '../../../data/ParaghData'
+import { useSelector, useDispatch } from 'react-redux'
+import { getNews } from '../../../features/news/newsSlice'
 
 const BasicNews = () => {
+  const dispatch = useDispatch()
+  const { news } = useSelector((state) => state.news)
+
+  useEffect(()=>{ dispatch(getNews()) }, [dispatch])
+
   return (
     <Container>
       <Hr/>
@@ -12,18 +19,18 @@ const BasicNews = () => {
           <Left>
             <LeftContainer>
               <Title>Novinky</Title>
-              {NewsData.map((item)=>(
-               <ArticleContainer key={item.id}>
+              {news.map((news)=>(
+               <ArticleContainer key={news.id}>
                 <ArticleLeft>
-                <ArticleTitle>{item.title}</ArticleTitle>
-                <ArticleDate>{item.date}</ArticleDate>
-                <ArticleDesc>{item.desc}</ArticleDesc>
+                <ArticleTitle>{news.title}</ArticleTitle>
+                <ArticleDate>{news.date}</ArticleDate>
+                <ArticleDesc>{news.description}</ArticleDesc>
                 <ArticleButton>Více</ArticleButton>
                 </ArticleLeft>
                 <ArticleRight>
                   <ArticleImg/>
                 </ArticleRight>
-               </ArticleContainer>))}
+               </ArticleContainer>)).reverse().slice(0,3)}
             </LeftContainer>
           </Left>
           <Right>

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import NewsPut from '../components/News/NewsPut'
 import Vycet from '../components/News/Vycet'
 import { getNews, reset } from '../../features/news/newsSlice'
-
+import Header from '../components/Header'
 
 const NovinkyDash = () => {
   const navigate = useNavigate()
@@ -32,6 +32,7 @@ const NovinkyDash = () => {
 
   return (
     <div>
+      <Header/>
         <NewsPut/>
         {news.length > 0 ? (
           <div>
