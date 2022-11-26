@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Container, Wrapper, CenterDiv, Psy, Novinky, Info, Title,  Button } from '../styles/dashboardStyled'
 import Header from '../components/Header'
@@ -32,7 +32,7 @@ const Dashboard = () => {
                 <Novinky>
                   <FaReadme/>
                   <Title>Novinky</Title>
-                  <Button>Více</Button>
+                  <Button><Link to="/NovinkyDashboard">Více</Link></Button>
                 </Novinky>
                 <Info>
                   <FaInfo/>

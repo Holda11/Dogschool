@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import { NewsData } from '../../../data/NewsData'
 import { ParagraphData } from '../../../data/ParaghData'
 import {Container,  Wrapper, Row, Left, LeftContainer, Title, ArticleContainer, ArticleTitle, ArticleDate, ArticleDesc, ArticleButton, ArticleRight, ArticleImg, Right, InfoContainer, InfoTitle, InfoTime, InfoDesc, Paragraph, ArticleLeft,} from './StandartNewsStyled'
 import Axios from 'axios'
@@ -31,7 +30,7 @@ const StandartNews = () => {
                 <ArticleRight>
                   <ArticleImg/>
                 </ArticleRight>
-               </ArticleContainer>))}
+               </ArticleContainer>)).reverse()}
             </LeftContainer>
           </Left>
           <Right>

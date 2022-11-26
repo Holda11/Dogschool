@@ -1,26 +1,64 @@
-import React,{useState} from 'react'
-import axios from 'axios'
+import {useState} from 'react'
+import { useDispatch } from 'react-redux'
+import { createNews } from '../../../features/news/newsSlice'
 
 
 const NewsPut = () => {
-    const [title, setTitle] = useState("")
-    const [date, setDate] = useState("")
-    const [image, setImage] = useState("")
-    const [description, setDescription] = useState("")
+  const [title, setTitle] = useState('')
+  const [date, setDate] = useState('')
+  const [image, setImage] = useState('')
+  const [description, setDescription] = useState('')
 
-    const CreateNews = () =>{
-        axios.post("http://localhost:3001/createNews", {title, date, image, description }).then((response) =>{alert("Příspěvek přidán")})
-    }
+  const dispatch = useDispatch()
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    dispatch(createNews({ title, date, image, description}))
+    alert('Přidána novinka')
+  }
+
   return (
-    <>
-    <div>
-        <input type="text" placeholder="Zadejte Nadpis..." onChange={(event)=>{setTitle(event.target.value)}}/>
-        <input type="text" placeholder="Zadejte datum..." onChange={(event)=>{setDate(event.target.value)}}/>
-        <input type="text" placeholder="Zadejte odkaz na obrázek..." onChange={(event)=>{setImage(event.target.value)}}/>
-        <input type="text" placeholder="Zadejte popis..." onChange={(event)=>{setDescription(event.target.value)}}/>
-        <button onClick={CreateNews}>Přidat</button>
-    </div>
-    </>
+    <section>
+      <form onSubmit={onSubmit}>
+        <div>
+          <label htmlFor='text'>Novinka</label>
+          <input
+            type='text'
+            name='text'
+            id='text'
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <input
+            type='text'
+            name='text'
+            id='text'
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+          <input
+            type='text'
+            name='text'
+            id='text'
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+          />
+          <input
+            type='text'
+            name='text'
+            id='text'
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <div>
+          <button type='submit'>
+            Přidat Novinku
+          </button>
+        </div>
+      </form>
+    </section>
   )
 }
 
