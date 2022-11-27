@@ -6,6 +6,7 @@ import Login from "./admin/pages/loginPage";
 import NovinkyDash from "./admin/pages/NovinkyDash";
 import PsyDash from "./admin/pages/PsyDash";
 import './App.css';
+import Dobrman from "./components/Psy/Dobrman";
 import Home from './pages';
 import Dogs from "./pages/Dogs";
 import Novinky from "./pages/Novinky";
@@ -22,7 +23,8 @@ function App() {
         <Route path="/NovinkyDashboard" exact element={<NovinkyDash />}/>
         <Route path="/PsyDashboard" exact element={<PsyDash />}/>
         <Route path="/Boxer" exact element={<BoxerDash />}/>
-        <Route path="/Dobrman" exact element={<DobrmanDash />}/>
+        <Route path="/DobrmanDash" exact element={<DobrmanDash />}/>
+        <Route path="/Dobrman" exact element={<Dobrman />}/>
       </Routes>
       </BrowserRouter>
   );

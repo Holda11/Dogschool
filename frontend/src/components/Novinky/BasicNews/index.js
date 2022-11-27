@@ -8,7 +8,7 @@ import { getNews } from '../../../features/news/newsSlice'
 const BasicNews = () => {
   const dispatch = useDispatch()
   const { news } = useSelector((state) => state.news)
-
+ 
   useEffect(()=>{ dispatch(getNews()) }, [dispatch])
 
   return (

@@ -2,9 +2,9 @@ import { useDispatch } from 'react-redux'
 import { deleteDobrman } from '../../../../features/dobrman/dobrmanSlice'
 import { FaRegTrashAlt } from 'react-icons/fa' 
 
+
 const DobrmanVycet = ({dobrman}) => {
     const dispatch = useDispatch()
-  
   
     return (
     <>
