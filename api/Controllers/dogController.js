@@ -5,7 +5,7 @@ const Dog = require('../Models/DogModel')
 //Get = vezme data z listu News pro nás
 const getDog = asyncHandler( async (req, res)=>{
     const dog = await Dog.find()
-    res.status(200).json(Dog)
+    res.status(200).json(dog)
 })
 
 // Post = vloží data do databáze pro nás

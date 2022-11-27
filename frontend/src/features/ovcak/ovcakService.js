@@ -1,47 +1,47 @@
 import Axios  from "axios";
 
 
-const API_URL = '/api/Dog'
+const API_URL = '/api/Ovcak'
 
 
 //Get
-const getDogs = async ()=> {
+const getOvcak = async ()=> {
     const response = await Axios.get(API_URL)
 
     return response.data
 }
 
 //Create
-const createDogs = async (dogsData, token) => {
+const createOvcak = async (ovcakData, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         },
     }
 
-    const response = await Axios.post(API_URL, dogsData, config)
+    const response = await Axios.post(API_URL, ovcakData, config)
 
     return response.data
 }
 
 //Delete
 
-const deleteDogs = async (dogsId, token) =>{
+const deleteOvcak = async (ovcakId, token) =>{
     const config = {
         headers: {
             Authorization : `Bearer ${token}`
         }
     }
 
-    const response = await Axios.delete(API_URL + "/" + dogsId, config)
+    const response = await Axios.delete(API_URL + "/" + ovcakId, config)
 
     return response.data
 }
 
-const dogsService = {
-    getDogs,
-    createDogs,
-    deleteDogs
+const ovcakService = {
+    getOvcak,
+    createOvcak,
+    deleteOvcak
 }
 
-export default dogsService
+export default ovcakService

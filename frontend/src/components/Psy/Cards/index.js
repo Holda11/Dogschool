@@ -1,31 +1,27 @@
-import React from 'react'
 import { Boxer, Button, Container, Dobrman, Ovcak, Title, Wrapper } from './CardsStyled'
-import { useNavigate } from 'react-router-dom'
 
 
 const Cards = () => {
-    const navigate = useNavigate()
+    
 
-  return (
-    <Container>
+  
+  return ( 
+      <Container>
         <Wrapper>
             <Boxer>
                 <Title>Boxer</Title>
-                <Button onClick={()=>{
-                    navigate(`/NasiPsy/${dogs.category === 'Boxer'}`)}}>Více</Button>
+                <Button name="Boxer" value="Boxer">Více</Button>
             </Boxer>
             <Ovcak>
                 <Title>Německý Ovčák</Title>
-                <Button onClick={()=>{
-                    navigate(`/NasiPsy/${dogs.Ovcak}`)}}>Více</Button>
+                <Button name="Ovcak" value="Ovcak">Více</Button>
             </Ovcak>
             <Dobrman>
                 <Title>Dobrman</Title>
-                <Button onClick={()=>{
-                    navigate(`/NasiPsy/${dogs.Ovcak}`)}}>Více</Button>
+                <Button name="Dobrman" value="Dobrman">Více</Button>
             </Dobrman>
         </Wrapper>
-    </Container>
+    </Container> 
   )
 }
 

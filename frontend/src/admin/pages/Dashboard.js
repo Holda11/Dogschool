@@ -27,7 +27,7 @@ const Dashboard = () => {
                 <Psy>
                   <FaPaw/>
                   <Title>Psy</Title>
-                  <Button>Více</Button>
+                  <Button><Link to="/PsyDashboard">Více</Link></Button>
                 </Psy>
                 <Novinky>
                   <FaReadme/>

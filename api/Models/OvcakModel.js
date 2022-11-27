@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const DogSchema = new mongoose.Schema({
+const OvcakSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -19,5 +19,5 @@ const DogSchema = new mongoose.Schema({
     }
 })
 
-const DogModel = mongoose.model("dogs", DogSchema)
-module.exports = DogModel
+const OvcakModel = mongoose.model("ovcak", OvcakSchema)
+module.exports = OvcakModel
