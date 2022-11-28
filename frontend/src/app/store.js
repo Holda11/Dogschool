@@ -9,6 +9,7 @@ export const store = configureStore({
     auth: authReducer,
     news: newsReducer,
     dogs: dogsReducer,
+
     
   },
 });

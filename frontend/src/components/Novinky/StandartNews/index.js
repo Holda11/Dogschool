@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { ParagraphData } from '../../../data/ParaghData'
 import {Container,  Wrapper, Row, Left, LeftContainer, Title, ArticleContainer, ArticleTitle, ArticleDate, ArticleDesc, ArticleButton, ArticleRight, ArticleImg, Right, InfoContainer, InfoTitle, InfoTime, InfoDesc, Paragraph, ArticleLeft,} from './StandartNewsStyled'
 import { useSelector, useDispatch } from 'react-redux'
@@ -6,13 +6,16 @@ import { getNews } from '../../../features/news/newsSlice'
 
 
 const StandartNews = () => {
- 
-  
+  const [visible, setVisible] = useState(3)
   const dispatch = useDispatch()
 
   useEffect(()=>{ dispatch(getNews()) },[dispatch])
 
   const {news} = useSelector((state) => state.news)
+
+  const showMore = () =>{
+    setVisible((prevValue) => prevValue + 3)
+  }
 
   return (
     <Container>
@@ -32,7 +35,8 @@ const StandartNews = () => {
                 <ArticleRight>
                   <ArticleImg/>
                 </ArticleRight>
-               </ArticleContainer>)).reverse()}
+               </ArticleContainer>)).reverse().slice(0, visible)}
+               <button onClick={showMore}>Více</button>
             </LeftContainer>
           </Left>
           <Right>

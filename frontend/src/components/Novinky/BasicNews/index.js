@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { Container, Hr, Wrapper, Row, Left, LeftContainer, Title, ArticleContainer, ArticleTitle, ArticleDate, ArticleDesc, ArticleButton, ArticleRight, ArticleImg, Right, InfoContainer, InfoTitle, InfoTime, InfoDesc, Paragraph, ArticleLeft,  } from './BasicStyled'
-import { NewsData } from '../../../data/NewsData'
 import { ParagraphData } from '../../../data/ParaghData'
 import { useSelector, useDispatch } from 'react-redux'
 import { getNews } from '../../../features/news/newsSlice'

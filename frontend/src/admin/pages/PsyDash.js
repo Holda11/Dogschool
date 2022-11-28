@@ -27,7 +27,7 @@ const PsyDash = () => {
     return ()=>{
       dispatch(reset())
     }
-  }, [user, isError, message, dispatch])
+  }, [user, isError, message, navigate ,dispatch])
 
   return (
     <div>
