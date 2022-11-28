@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {FaSignOutAlt} from 'react-icons/fa'
+import {FaSignOutAlt, FaArrowCircleLeft} from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../features/auth/authSlice'
@@ -29,11 +29,14 @@ const Header = () => {
         dispatch(reset())
         navigate('/Login')
     }
+    const Back =()=>{ 
+      navigate('/Dashboard')
+    }
 
   return (
     <Navbar>
         <>DogschoolK9</> 
-        {user ? (<button onClick={onLogout}><FaSignOutAlt/></button>) : <></>}
+        {user ? (<><button onClick={Back}><FaArrowCircleLeft/></button> <button onClick={onLogout}><FaSignOutAlt/></button></>) : <></>}
     </Navbar>
   )
 }
