@@ -1,5 +1,6 @@
+import axios from 'axios'
 import {useState} from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { createNews } from '../../../features/news/newsSlice'
 
 
@@ -8,8 +9,32 @@ const NewsPut = () => {
   const [date, setDate] = useState('')
   const [image, setImage] = useState('')
   const [description, setDescription] = useState('')
+  const [upload, setUpload] = useState('')
+    const uploadFileHandler = async(e)=>{
+        const file = e.target.files[0]
+        const formData = new FormData()
+        formData.append('image', file)
+        setUpload(true)
+    
+        try{
+          const config ={
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          }
+          const { data } = await axios.post('/api/Upload/', formData, config)
+          console.log(data)
+          setImage(data)
+          setUpload(false)
+        }
+        catch(error){
+          console.log(error)
+          setUpload(false)
+        }
+      }
 
   const dispatch = useDispatch()
+
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -58,6 +83,9 @@ const NewsPut = () => {
           </button>
         </div>
       </form>
+      <form encType='multipart/form-data'>
+            <input type='file' name='image' onChange={uploadFileHandler}/>
+        </form>
     </section>
   )
 }

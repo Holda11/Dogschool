@@ -5,7 +5,7 @@ const API_URL = '/api/News'
 const createNews = async (newsData, token) =>{
     const config = {
         headers: {
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
         },
     }
 

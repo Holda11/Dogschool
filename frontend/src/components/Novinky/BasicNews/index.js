@@ -27,7 +27,7 @@ const BasicNews = () => {
                 <ArticleButton>Více</ArticleButton>
                 </ArticleLeft>
                 <ArticleRight>
-                  <ArticleImg/>
+                  <ArticleImg />
                 </ArticleRight>
                </ArticleContainer>)).reverse().slice(0,3)}
             </LeftContainer>

@@ -1,5 +1,6 @@
-import {useState} from 'react'
-import { useDispatch } from 'react-redux'
+import axios from 'axios'
+import {useEffect, useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { createDogs } from '../../../../features/dogs/dogsSlice'
 
 
@@ -8,8 +9,10 @@ const DogsPut = () => {
   const [category, setCategory] = useState('')
   const [image, setImage] = useState('')
   const [description, setDescription] = useState('')
+  
 
   const dispatch = useDispatch()
+
 
   const onSubmit = (e) => {
     e.preventDefault()

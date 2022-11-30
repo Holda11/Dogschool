@@ -2,6 +2,8 @@
 const asyncHandler = require('express-async-handler')
 const News = require('../Models/NewsModel')
 
+
+
 //Get = vezme data z listu News pro nás
 const getNews = asyncHandler( async (req, res)=>{
     const news = await News.find()
@@ -11,7 +13,8 @@ const getNews = asyncHandler( async (req, res)=>{
 // Post = vloží data do databáze pro nás
 //! Přidat podmínku na uživatele
 const postNews = asyncHandler( async (req, res)=>{
-    if(!req.body){
+   
+   if(!req.body){
         res.status(400)
         throw new Error('Prosím zadejte text do pole')
     }
