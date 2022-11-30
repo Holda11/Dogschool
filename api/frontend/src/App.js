@@ -25,7 +25,7 @@ function App() {
         <Route path="/:category/Profile/:name" element={<Profile/>}/>
         <Route path="/Onas"  element={<Onas />}/>
         <Route path="/Test"  element={<Uploading />}/>
-        //? admin
+        
         <Route path="/Login"  element={<Login />}/>
         <Route path="/Dashboard"  element={<Dashboard />}/>
         <Route path="/NovinkyDashboard"  element={<NovinkyDash />}/>

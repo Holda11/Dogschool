@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Hr, Wrapper, Row, Left, LeftContainer, Title, ArticleContainer, ArticleTitle, ArticleDate, ArticleDesc, ArticleButton, ArticleRight, ArticleImg, Right, InfoContainer, InfoTitle, InfoTime, InfoDesc, Paragraph, ArticleLeft,  } from './BasicStyled'
 import { ParagraphData } from '../../../data/ParaghData'
 import { useSelector, useDispatch } from 'react-redux'
@@ -7,6 +7,10 @@ import { getNews } from '../../../features/news/newsSlice'
 const BasicNews = () => {
   const dispatch = useDispatch()
   const { news } = useSelector((state) => state.news)
+
+  
+
+  
  
   useEffect(()=>{ dispatch(getNews()) }, [dispatch])
 
@@ -25,9 +29,10 @@ const BasicNews = () => {
                 <ArticleDate>{news.date}</ArticleDate>
                 <ArticleDesc>{news.description}</ArticleDesc>
                 <ArticleButton>Více</ArticleButton>
+                {console.log(news.image)}
                 </ArticleLeft>
                 <ArticleRight>
-                  <ArticleImg />
+                  <ArticleImg src={require(`../../../images/`+ news.image)} />
                 </ArticleRight>
                </ArticleContainer>)).reverse().slice(0,3)}
             </LeftContainer>

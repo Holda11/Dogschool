@@ -11,7 +11,7 @@ const Uploading = () => {
         const formData = new FormData()
         formData.append('image', file)
         setUpload(true)
-    
+        
         try{
           const config ={
             headers: {
@@ -28,12 +28,13 @@ const Uploading = () => {
           setUpload(false)
         }
       }
+      
   return (
     <div>
         <form encType='multipart/form-data'>
             <input type='file' name='image' onChange={uploadFileHandler}/>
+            {image}
         </form>
-        {image}
     </div>
   )
 }
