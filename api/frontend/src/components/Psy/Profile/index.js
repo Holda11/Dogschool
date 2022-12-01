@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
-
 import { getDogs } from '../../../features/dogs/dogsSlice'
-import { Container, ProfileImage, Wrapper, TextWrapper, Description } from './ProfileStyled'
+import { Container, ProfileImage, Wrapper, TextWrapper, Description, ImageContainer, Title, DefaultTitle, Row } from './ProfileStyled'
 
-const Profile = () => {
+const ProfileDogs = () => {
   const { name, category } = useParams()
   const dispatch = useDispatch()
   const {dogs} = useSelector((state) => state.dogs)
@@ -14,16 +13,22 @@ const Profile = () => {
   return (<>
    {dogs.map((dogs) => {if(dogs.name === name && dogs.category === category) return(
     <Container >
-        <ProfileImage/>
-        <Wrapper>
+      <Wrapper>
+        <Row>
+        <ImageContainer>
+        <ProfileImage src={require(`../../../images/`+ dogs.image)} />
+        </ImageContainer>
             <TextWrapper>
-                <Description>{dogs.name}</Description>
+                <Title>{dogs.name}</Title>  
+                <DefaultTitle>Popis:</DefaultTitle>
+                <Description>{dogs.description}</Description>
                 <a href='facebook.com'></a>
             </TextWrapper>
+        </Row>
         </Wrapper>
     </Container>)} )}
     </>
   )
 }
 
-export default Profile
+export default ProfileDogs

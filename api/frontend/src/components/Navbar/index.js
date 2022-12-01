@@ -40,7 +40,7 @@ const Navbar = () => {
                     <NavLinks to="/Onas">O nás</NavLinks>
                 </NavItem>
                 <NavItem>
-                    <NavLinks to="/Kontakty">Kontakt</NavLinks>
+                    <NavLinks to="/Kontakt">Kontakt</NavLinks>
                 </NavItem>
             </NavMenu>
         </NavContainer>

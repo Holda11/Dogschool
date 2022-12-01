@@ -11,15 +11,15 @@ const Cards = () => {
         <Wrapper>
             <Boxer>
                 <Title>Boxer</Title>
-                <Button name="Boxer" value="Boxer" ><Link to="/ListDog/Boxer">Více</Link></Button>
+                <Button name="Boxer" value="Boxer" ><Link to="/NasiPsy/Boxer">Více</Link></Button>
             </Boxer>
             <Ovcak>
                 <Title>Německý Ovčák</Title>
-                <Button name="Ovcak" value="Ovcak">Více</Button>
+                <Button name="Ovcak" value="Ovcak"><Link to="/NasiPsy/Ovcak">Více</Link></Button>
             </Ovcak>
             <Dobrman>
                 <Title>Dobrman</Title>
-                <Button name="Dobrman" value="Dobrman"><Link to="/ListDog/Dobrman">Více</Link></Button>
+                <Button name="Dobrman" value="Dobrman"><Link to="/NasiPsy/Dobrman">Více</Link></Button>
             </Dobrman>
         </Wrapper>
     </Container> 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -130,4 +131,17 @@ margin-top: -10px;
 export const InfoDesc = styled.p`
 color: black;
 font-size: 12px;
+`
+export const LinkArticle = styled(Link)`
+color: #fff;
+display: flex;
+text-decoration: none;
+align-items: center;
+justify-content: center;
+width: 58px;
+height: 28px;
+text-align: center;
+background-color: black;
+border-radius: 25px;
+margin: 24px;
 `

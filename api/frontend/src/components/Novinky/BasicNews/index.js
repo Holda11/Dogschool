@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Hr, Wrapper, Row, Left, LeftContainer, Title, ArticleContainer, ArticleTitle, ArticleDate, ArticleDesc, ArticleButton, ArticleRight, ArticleImg, Right, InfoContainer, InfoTitle, InfoTime, InfoDesc, Paragraph, ArticleLeft,  } from './BasicStyled'
+import { Container, Hr, Wrapper, Row, Left, LeftContainer, Title, ArticleContainer, ArticleTitle, ArticleDate, ArticleDesc, ArticleButton, ArticleRight, ArticleImg, Right, InfoContainer, InfoTitle, InfoTime, InfoDesc, Paragraph, ArticleLeft, LinkArticle,  } from './BasicStyled'
 import { ParagraphData } from '../../../data/ParaghData'
 import { useSelector, useDispatch } from 'react-redux'
 import { getNews } from '../../../features/news/newsSlice'
+
 
 const BasicNews = () => {
   const dispatch = useDispatch()
@@ -27,12 +28,11 @@ const BasicNews = () => {
                 <ArticleLeft>
                 <ArticleTitle>{news.title}</ArticleTitle>
                 <ArticleDate>{news.date}</ArticleDate>
-                <ArticleDesc>{news.description}</ArticleDesc>
-                <ArticleButton>Více</ArticleButton>
-                {console.log(news.image)}
+                <ArticleDesc>{news.description.slice('', 50)}</ArticleDesc>
+                <LinkArticle to={`/Novinky/${news.title}`}>Více</LinkArticle>
                 </ArticleLeft>
                 <ArticleRight>
-                  <ArticleImg src={require(`../../../images/`+ news.image)} />
+                  <ArticleImg />
                 </ArticleRight>
                </ArticleContainer>)).reverse().slice(0,3)}
             </LeftContainer>

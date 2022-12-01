@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { ParagraphData } from '../../../data/ParaghData'
-import {Container,  Wrapper, Row, Left, LeftContainer, Title, ArticleContainer, ArticleTitle, ArticleDate, ArticleDesc, ArticleButton, ArticleRight, ArticleImg, Right, InfoContainer, InfoTitle, InfoTime, InfoDesc, Paragraph, ArticleLeft,} from './StandartNewsStyled'
+import {Container,  Wrapper, Row, Left, LeftContainer, Title, ArticleContainer, ArticleTitle, ArticleDate, ArticleDesc, ArticleButton, ArticleRight, ArticleImg, Right, InfoContainer, InfoTitle, InfoTime, InfoDesc, Paragraph, ArticleLeft, LinkArticle,} from './StandartNewsStyled'
 import { useSelector, useDispatch } from 'react-redux'
 import { getNews } from '../../../features/news/newsSlice'
 import { Link } from 'react-router-dom'
@@ -26,15 +26,14 @@ const StandartNews = () => {
             <LeftContainer>
               <Title>Novinky</Title>
               {news.map((news)=>(
-               <ArticleContainer>
+               <ArticleContainer key={news.id}>
                 <ArticleLeft>
                 <ArticleTitle>{news.title}</ArticleTitle>
                 <ArticleDate>{news.date}</ArticleDate>
                 <ArticleDesc>{news.description}</ArticleDesc>
-                <ArticleButton><Link to={`/Novinky/${news.title}`}>Více</Link></ArticleButton>
+                <LinkArticle to={`/Novinky/${news.title}`}>Více</LinkArticle>
                 </ArticleLeft>
                 <ArticleRight>
-                  <ArticleImg/>
                 </ArticleRight>
                </ArticleContainer>)).reverse().slice(0, visible)}
                <button onClick={showMore}>Více</button>

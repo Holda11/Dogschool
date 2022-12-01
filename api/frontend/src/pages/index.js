@@ -7,7 +7,6 @@ import Slider from '../components/Slider'
 const Home = () => {
   return (
     <>
-    //! Přidat Footer
     <Navbar/>
     <Slider/>
     <BasicNews/>
